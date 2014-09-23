@@ -2,6 +2,7 @@ module.exports = function(app) {
 
 	// server routes
 	app.get('/api/users', function(req, res) {
+		var User = require('../models/user');
 		User.find(function(err, users) {
 			if(err)
 				res.send(err);

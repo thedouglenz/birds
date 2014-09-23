@@ -12,7 +12,10 @@
 </div>
 
 <div> <!-- List of current users -->
-	<ul>
-
-	</ul>
+	<div ng-repeat="user in users">
+		<strong>{{ user.local.email }}</strong><br>
+		<em> Member since {{ user.local.created }}</em><br>
+		<em> Last modified {{ user.local.modified }}</em><br>
+		<em> Valid: {{ user.local.valid }}</em><br>
+	</div>
 </div>
