@@ -14,6 +14,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'UserController'
 		})
 
+		.when('/couples', {
+			templateUrl: 'views/couple.html',
+			controller: 'CoupleController'
+		});
+
 	$locationProvider.html5Mode(true);
 
 }]);

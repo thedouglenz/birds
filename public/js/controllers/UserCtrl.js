@@ -1,5 +1,11 @@
-angular.module('UserCtrl', []).controller('UserController', function($scope) {
+angular.module('UserCtrl', []).controller('UserController', function($scope, User) {
 
-	$scope.tagline = 'The square root of life is pi!';	
+	$scope.submit = function() {
+		var formData = {
+			'username' : $scope.newUsername,
+			'password' : $scope.newPassword
+		}
+		User.create(formData);
+	}
 
 });
