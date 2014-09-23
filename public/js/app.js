@@ -1,0 +1,1 @@
+angular.module('BirdsApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'UserCtrl', 'UserService']);
