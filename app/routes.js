@@ -22,7 +22,9 @@ module.exports = function(app) {
 		var User = require('../models/user');
 		newUser = new User();
 		
-		newUser.local.email = req.body.username;
+		newUser.username = req.body.email;
+		newUser.local.realname = req.body.fullname;
+		newUser.local.email = req.body.email;
 		newUser.local.password = newUser.generateHash(req.body.password);
 		
 		var now = Date();

@@ -4,28 +4,32 @@
 </div>
 
 <div> <!-- New user form -->
-<form ng-submit="submit()">
-	<input type="text" placeholder="New Username" ng-model="newUsername"/>
+	<h3>New user</h3>
+	<form ng-submit="submit()">
+	<input type="text" placeholder="Full name" ng-model="newName" />
+	<input type="text" placeholder="Email Address" ng-model="newEmail"/>
 	<input type="password" placeholder="New Password" ng-model="newPassword"/>
 	<button type="submit">Create</button>
-</form>
+	</form>
 </div>
 
 <div> <!-- Search existing users -->
 	<h3>Search for someone</h3>
-	<form ng-submit="searchSubmit()">
+	<form name="newUserForm" ng-submit="searchSubmit()">
 	<input type="email" placeholder="Search for someone by email" ng-model="searchEmail" />
 		<button type="submit">Find</button>
 	</form>
-	<div> <!-- results -->
-		<em>{{ findResult.local.email }}</em>
+	<div ng-show="searchComplete"> <!-- results -->
+		<h4>We found ...</h4>
+		<em>{{ findResult.local.realname }}</em>
 	</div>
 </div>
 
 <div> <!-- List of current users -->
 	<h3>All users</h3>
 	<div ng-repeat="user in users">
-		<strong>{{ user.local.email }}</strong><br>
+		<strong>{{ user.local.realname }}</strong><br>
+		<em>{{ user.local.email }}</em><br>
 		<em> Member since {{ user.local.created }}</em><br>
 		<em> Last modified {{ user.local.modified }}</em><br>
 		<em> Valid: {{ user.local.valid }}</em><br>

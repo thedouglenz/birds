@@ -8,18 +8,23 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, Use
 
 	$scope.submit = function() {
 		var formData = {
-			'username' : $scope.newUsername,
+			'fullname' : $scope.newName,
+			'email' : $scope.newEmail,
 			'password' : $scope.newPassword
 		};
 		User.create(formData);
+		$scope.newUserForm.$setPristine();
 	}
 
+
+	$scope.searchComplete = false;
 	$scope.searchSubmit = function() {
 		var formData = {
 			email : $scope.searchEmail
 		};
 		User.find(formData).success(function(data) {
 			$scope.findResult = data;
+			$scope.searchComplete = true;
 		});
 	}
 
