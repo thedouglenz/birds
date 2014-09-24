@@ -11,7 +11,19 @@
 </form>
 </div>
 
+<div> <!-- Search existing users -->
+	<h3>Search for someone</h3>
+	<form ng-submit="searchSubmit()">
+	<input type="email" placeholder="Search for someone by email" ng-model="searchEmail" />
+		<button type="submit">Find</button>
+	</form>
+	<div> <!-- results -->
+		<em>{{ findResult.local.email }}</em>
+	</div>
+</div>
+
 <div> <!-- List of current users -->
+	<h3>All users</h3>
 	<div ng-repeat="user in users">
 		<strong>{{ user.local.email }}</strong><br>
 		<em> Member since {{ user.local.created }}</em><br>

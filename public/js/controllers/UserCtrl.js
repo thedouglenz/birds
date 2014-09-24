@@ -4,15 +4,23 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, Use
 	// $scope.users
 	User.get().success(function(data) {
 		$scope.users = data;
-		console.log($scope.users);
 	});
 
 	$scope.submit = function() {
 		var formData = {
 			'username' : $scope.newUsername,
 			'password' : $scope.newPassword
-		}
+		};
 		User.create(formData);
+	}
+
+	$scope.searchSubmit = function() {
+		var formData = {
+			email : $scope.searchEmail
+		};
+		User.find(formData).success(function(data) {
+			$scope.findResult = data;
+		});
 	}
 
 });

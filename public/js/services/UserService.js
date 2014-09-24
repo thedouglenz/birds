@@ -11,6 +11,14 @@ angular.module('UserService', []).factory('User', ['$http', function($http) {
 
 		delete : function(id) {
 			return $http.delete('/api/users/' + id);
+		},
+
+		find : function(params) {
+			return $http({
+				url : '/api/users',
+				method : "GET",
+				params : params
+			});
 		}
 	}
 	

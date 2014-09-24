@@ -3,12 +3,19 @@ module.exports = function(app) {
 	// server routes
 	app.get('/api/users', function(req, res) {
 		var User = require('../models/user');
-		User.find(function(err, users) {
-			if(err)
-				res.send(err);
+		console.log("api call to /api/users/ GET");
+		if(!Object.keys(req.query).length) { // is query empty?
+			User.find(function(err, users) {
+				if(err)
+					res.send(err);
 
-			res.json(users);
-		});
+				res.json(users);
+			});
+		} else {
+			User.findOne({'local.email':req.query.email}, function(err, user) {
+				res.json(user);
+			});
+		}
 	});
 
 	app.post('/api/users', function(req, res) {
