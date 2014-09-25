@@ -1,1 +1,1 @@
-angular.module('BirdsApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'UserCtrl', 'UserService']);
+angular.module('BirdsApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'UserCtrl', 'UserService', 'CoupleCtrl', 'CoupleService']);
