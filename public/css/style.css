@@ -1,0 +1,15 @@
+/* main layout styles */
+
+.heading-nav {
+	border-radius: 0px;
+}
+
+.heading-nav a:hover {
+	color:blue;
+}
+
+.btn {
+	border-radius:0px;
+}
+
+/*------------*/
