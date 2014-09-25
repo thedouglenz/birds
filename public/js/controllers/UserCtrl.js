@@ -1,10 +1,13 @@
-angular.module('UserCtrl', []).controller('UserController', function($scope, User) {
+angular.module('UserCtrl', []).controller('UserController', function($scope, $window, User) {
 
 	
 	// $scope.users
-	User.get().success(function(data) {
-		$scope.users = data;
-	});
+	function getRefreshUsers() {
+		User.get().success(function(data) {
+			$scope.users = data;
+		});
+	}
+	getRefreshUsers();
 
 	$scope.submit = function() {
 		var formData = {
@@ -26,6 +29,13 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, Use
 			$scope.findResult = data;
 			$scope.searchComplete = true;
 		});
+	}
+
+	$scope.deleteUser = function(userId) {
+		if($window.confirm("Are you sure?")) {
+			User.delete(userId);
+			getRefreshUsers();
+		}
 	}
 
 });

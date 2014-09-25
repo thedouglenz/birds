@@ -41,6 +41,19 @@ module.exports = function(app) {
 		});
 	});
 
+	app.delete('/api/users/:id', function(req, res) {
+		var User = require('../models/user');
+		return User.findById(req.params.id, function(err, user) {
+			return user.remove(function(err) {
+				if(!err) {
+					return res.send('');
+				} else {
+					console.log(err);
+				}
+			});
+		});
+	});
+
 	app.get('/api/couples', function(req, res) {
 		var Couple = require('../models/couple');
 		console.log("api call to /api/couples GET");

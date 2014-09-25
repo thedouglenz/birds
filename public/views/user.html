@@ -32,6 +32,8 @@
 		<em>{{ user.local.email }}</em><br>
 		<em> Member since {{ user.local.created }}</em><br>
 		<em> Last modified {{ user.local.modified }}</em><br>
-		<em> Valid: {{ user.local.valid }}</em><br><br>
+		<em> Valid: {{ user.local.valid }}</em><br>
+		<button ng-click="deleteUser(user._id)">Delete</button><br><br>
+
 	</div>
 </div>
