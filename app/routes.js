@@ -37,7 +37,7 @@ module.exports = function(app) {
 			if(err) {
 				throw err;
 			}
-			console.log("in the new user save function");
+			res.send("OK");
 		});
 	});
 

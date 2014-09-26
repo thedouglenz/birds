@@ -5,7 +5,7 @@
 
 <div> <!-- New user form -->
 	<h3>New user</h3>
-	<form ng-submit="submit()">
+	<form name="newUserForm" ng-submit="submit()">
 	<input type="text" placeholder="Full name" ng-model="newName" />
 	<input type="text" placeholder="Email Address" ng-model="newEmail"/>
 	<input type="password" placeholder="New Password" ng-model="newPassword"/>
@@ -15,7 +15,7 @@
 
 <div> <!-- Search existing users -->
 	<h3>Search for someone</h3>
-	<form name="newUserForm" ng-submit="searchSubmit()">
+	<form ng-submit="searchSubmit()">
 	<input type="email" placeholder="Search for someone by email" ng-model="searchEmail" />
 		<button type="submit">Find</button>
 	</form>

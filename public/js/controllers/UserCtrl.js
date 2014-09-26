@@ -15,8 +15,13 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $wi
 			'email' : $scope.newEmail,
 			'password' : $scope.newPassword
 		};
-		User.create(formData);
-		$scope.newUserForm.$setPristine();
+		User.create(formData).success(function() {
+			$scope.newUserForm.$setPristine();
+			$scope.newName = '';
+			$scope.newEmail = '';
+			$scope.newPassword = '';
+			getRefreshUsers();
+		});
 	}
 
 
@@ -33,8 +38,9 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $wi
 
 	$scope.deleteUser = function(userId) {
 		if($window.confirm("Are you sure?")) {
-			User.delete(userId);
-			getRefreshUsers();
+			User.delete(userId).success(function() {
+				getRefreshUsers();
+			});
 		}
 	}
 
